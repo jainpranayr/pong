@@ -24,8 +24,13 @@ const context = canvas.getContext("2d");
 
 const ball = new Ball();
 
-context.fillStyle = "#000";
-context.fillRect(0, 0, canvas.width, canvas.height);
+function update(dt) {
+  ball.pos.x += ball.vel.x + dt;
+  ball.pos.y += ball.vel.y + dt;
 
-context.fillStyle = "#fff";
-context.fillRect(ball.pos.x, ball.pos.y, ball.size.x, ball.size.y);
+  context.fillStyle = "#000";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  context.fillStyle = "#fff";
+  context.fillRect(ball.pos.x, ball.pos.y, ball.size.x, ball.size.y);
+}
