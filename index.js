@@ -5,6 +5,13 @@ class Vector {
   }
 }
 
+class Rect {
+  constructor(w, h) {
+    this.pos = new Vector();
+    this.size = new Vector(w, h);
+  }
+}
+
 const canvas = document.querySelector("#pong");
 const context = canvas.getContext("2d");
 
