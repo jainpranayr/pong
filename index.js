@@ -23,10 +23,23 @@ const canvas = document.querySelector("#pong");
 const context = canvas.getContext("2d");
 
 const ball = new Ball();
+ball.pos.x = 100;
+ball.pos.y = 50;
+ball.vel.x = 100;
+ball.vel.y = 100;
+
+let lastTime;
+function callback(ms) {
+  if (lastTime) {
+    update((ms - lastTime) / 1000);
+  }
+  lastTime = ms;
+  requestAnimationFrame(callback);
+}
 
 function update(dt) {
-  ball.pos.x += ball.vel.x + dt;
-  ball.pos.y += ball.vel.y + dt;
+  ball.pos.x += ball.vel.x * dt;
+  ball.pos.y += ball.vel.y * dt;
 
   context.fillStyle = "#000";
   context.fillRect(0, 0, canvas.width, canvas.height);
@@ -34,3 +47,11 @@ function update(dt) {
   context.fillStyle = "#fff";
   context.fillRect(ball.pos.x, ball.pos.y, ball.size.x, ball.size.y);
 }
+
+context.fillStyle = "#000";
+context.fillRect(0, 0, canvas.width, canvas.height);
+
+context.fillStyle = "#fff";
+context.fillRect(ball.pos.x, ball.pos.y, ball.size.x, ball.size.y);
+
+callback();
