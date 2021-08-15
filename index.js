@@ -1,3 +1,10 @@
+class Vector {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
 const canvas = document.querySelector("#pong");
 const context = canvas.getContext("2d");
 
