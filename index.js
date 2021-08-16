@@ -3,6 +3,14 @@ class Vector {
     this.x = x;
     this.y = y;
   }
+  get len() {
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+  set len(value) {
+    const fact = value / this.len;
+    this.x *= fact;
+    this.y *= fact;
+  }
 }
 
 class Rect {
@@ -73,7 +81,10 @@ class Pong {
       player.top < ball.bottom &&
       player.bottom > ball.top
     ) {
+      const len = ball.vel.len;
       ball.vel.x = -ball.vel.x;
+      ball.vel.y += 300 * (Math.random() - 0.5);
+      ball.vel.len = len * 1.05;
     }
   }
 
@@ -89,6 +100,7 @@ class Pong {
     if (this.ball.vel.x === 0 && this.ball.vel.y === 0) {
       this.ball.vel.x = 300 * ((Math.random() > 0.5 > 1) | -1);
       this.ball.vel.y = 300 * (Math.random() * 2 - 1);
+      this.ball.vel.len = 200;
     }
   }
 
