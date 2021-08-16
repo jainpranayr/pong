@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +7,34 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: rgb(88, 87, 87);
+  text-align: center;
+  color: white;
+  font-family: "Bubblegum Sans", cursive;
+  background-color: #202020;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 5em;
+  margin-top: 2%;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+.container {
+  height: 80vh;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+canvas {
+  margin-top: 5%;
+  border: solid 1px slategray;
+  border-left: none;
+  border-right: none;
+  image-rendering: pixelated;
+  width: 75%;
 }
