@@ -55,6 +55,17 @@ class Pong {
     callback();
   }
 
+  draw() {
+    this._context.fillStyle = "#000";
+    this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
+    this.drawRect(this.ball);
+  }
+
+  drawRect(rect) {
+    this._context.fillStyle = "#fff";
+    this._context.fillRect(rect.pos.x, rect.pos.y, rect.size.x, rect.size.y);
+  }
+
   update(dt) {
     this.ball.pos.x += this.ball.vel.x * dt;
     this.ball.pos.y += this.ball.vel.y * dt;
@@ -66,16 +77,7 @@ class Pong {
       this.ball.vel.y = -this.ball.vel.y;
     }
 
-    this._context.fillStyle = "#000";
-    this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
-
-    this._context.fillStyle = "#fff";
-    this._context.fillRect(
-      this.ball.pos.x,
-      this.ball.pos.y,
-      this.ball.size.x,
-      this.ball.size.y
-    );
+    this.draw();
   }
 }
 
