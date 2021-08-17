@@ -38,3 +38,23 @@ canvas {
   image-rendering: pixelated;
   width: 75%;
 }
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+    margin-top: 30%;
+  }
+  p {
+    font-size: 1em;
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+  }
+
+  canvas {
+    margin-top: 20%;
+    width: 90%;
+  }
+}
